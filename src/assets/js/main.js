@@ -26,10 +26,8 @@
   // `;
   var textToType = `
     Hello Fellas,|
-    Facing n/w issues (call drops, no connectivity) due to n/w upgradation in our area from last 4 Days.|
-    For that I have upgrade my SIM card, factory resetted my phone to zero configuration.|
-    Still facing the same.|
-    So, it's a humble request to text, whatsapp or email given. I'll get back to you ASAP.|
+    The n/w issues in our areas has been resolved now.|
+    Please feel free to contact.|
     Enjoy music.
   `;
   var currentIndex = 0;
