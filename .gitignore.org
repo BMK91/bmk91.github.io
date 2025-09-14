@@ -1,2 +1,6 @@
 
+/.parcel-cache
+/src
+imp.txt
+
 

@@ -26,8 +26,9 @@
   // `;
   var textToType = `
     Hello Fellas,|
-    The n/w issues in our areas has been resolved now.|
-    Please feel free to contact.|
+    Welcome to my profile.|
+    It's customised creative development.|
+    Please feel free to connect.|
     Enjoy music.
   `;
   var currentIndex = 0;
@@ -154,6 +155,9 @@
     $modal.fadeOut(); // Fade-out effect for closing the modal
     $audio.pause(); // Stop the audio when modal is closed
     $audio.currentTime = 0;
+    setTimeout(() => {
+      $modal.remove();
+    }, 1000);
   });
 
   // Fix: Enable IE-only tweaks.
@@ -262,13 +266,32 @@
     ];
 
   // Function to get a random color
-  function getRandomColor() {
+  function getRandomColorOld() {
     let letters = "0123456789ABCDEF",
       color = "#";
     for (let i = 0; i < 6; i++) {
       color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+  }
+
+  function getRandomColor() {
+    function luminance(r, g, b) {
+      return 0.299 * r + 0.587 * g + 0.114 * b;
+    }
+
+    let r, g, b, lum;
+
+    do {
+      r = Math.floor(Math.random() * 256);
+      g = Math.floor(Math.random() * 256);
+      b = Math.floor(Math.random() * 256);
+      lum = luminance(r, g, b);
+    } while (lum < 80 || lum > 160); // Keep colors in the medium range
+
+    return `#${r.toString(16).padStart(2, "0")}${g
+      .toString(16)
+      .padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
   }
 
   let inc = 1;
@@ -315,6 +338,31 @@
       $image.hide();
     }
   });
+
+  function createRain() {
+    const drop = document.createElement("div");
+    drop.classList.add("raindrop");
+
+    // Random X position
+    drop.style.left = Math.random() * (window.innerWidth - 20) + "px";
+
+    // Random fall duration
+    const duration = 1 + Math.random() * 1.5;
+    drop.style.animationDuration = duration + "s";
+
+    // Random drop size
+    drop.style.height = 10 + Math.random() * 20 + "px";
+
+    document.body.appendChild(drop);
+
+    // Remove after fall
+    setTimeout(() => {
+      drop.remove();
+    }, duration * 1000);
+  }
+
+  // Create many drops continuously
+  setInterval(createRain, 50);
 
   // Menu.
   var $menu = $("#menu"),
