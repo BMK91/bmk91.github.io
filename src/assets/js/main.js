@@ -27,9 +27,8 @@
   var textToType = `
     Hello Fellas,|
     Welcome to my profile.|
-    It's been noted that I'm out for trekking (unreachable n/w area) from 18/10/2025 to 30/10/2025.|
-    It's a kind request to mail/whatsapp me, I'll get back on the same once received.|
-    Thank you for your co-support.|
+    It's customised creative development.|
+    Please feel free to connect.|
     Enjoy music.
   `;
   var currentIndex = 0;
